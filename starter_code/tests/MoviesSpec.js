@@ -61,7 +61,7 @@ describe('Get the average rate - ratesAverage', function () {
   });
 
   it('It should be rounded to nearest hundredths ', function () {
-    expect(ratesAverage([{ rate: 8 }, { rate: 9 }, { rate: 9 }])).toBeCloseTo(8.67, 2);
+    expect(ratesAverage([{ rate: 8 }, { rate: 9 }, { rate: 9 }])).toBe(8.67);
   });
 });
 

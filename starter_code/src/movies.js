@@ -30,13 +30,30 @@ function turnHoursToMinutes(movies) {
 }
 
 // Get the average of all rates with 2 decimals 
-
+function ratesAverage(movies) {
+  if (movies.length === 0) return undefined
+  let totalSum = movies.reduce((sum,movie)=>sum+Number(movie.rate), 0)
+  let avg = totalSum / movies.length
+  return Number(avg.toFixed(2))
+}
 
 // Get the average of Drama Movies
-
+function dramaMoviesRate(movies) {
+  let dramaMovies = movies
+    .filter(movie => movie.genre.includes('Drama'))
+  return ratesAverage(dramaMovies)
+}
 
 // Order by time duration, in growing order
-
+function orderByDuration(movies) {
+  return movies
+    .sort((movieA,movieB) => {
+      // if movieA is before movieB, return -1
+      if (movieA.duration < movieB.duration 
+        || (movieA.duration === movieB.duration && movieA.title < movieB.title)) return -1
+      else return 1
+    })
+}
 
 // How many movies did STEVEN SPIELBERG
 
